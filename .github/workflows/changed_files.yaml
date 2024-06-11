@@ -1,0 +1,15 @@
+name: Test Changed Files
+
+on: pull_request
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: tj-actions/changed-files@v44
+        with:
+          exclude_submodules: false
+          fetch_additional_submodule_history: true
